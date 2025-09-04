@@ -7,7 +7,7 @@
 
 ---
 
-Fluxzero is a next-generation platform for building scalable, resilient, and joyful backend applications. But it doesn’t stop at the backend. Our vision is to simplify app development across the stack — starting with what matters most: the core logic.
+Fluxzero is a next-generation platform for building zero-boilerplate, scalable, and resilient backend applications.
 
 You write code that solves real business problems.  
 Fluxzero takes care of the 50 things you'd rather not implement.
