@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/fluxzero/.github/raw/main/assets/fluxzero-logo.png" width="120" alt="Fluxzero logo" />
+  <img src="https://raw.githubusercontent.com/fluxzero-io/.github/refs/heads/main/assets/fluxzero-logo.png" width="120" alt="Fluxzero logo" />
 </p>
 
 <h2 align="center">Fluxzero</h2>
