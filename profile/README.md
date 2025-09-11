@@ -27,4 +27,4 @@ Coming soon: support for more languages and platforms.
 ---
 
 ### Learn more
-- [SDK Docs](https://github.com/fluxzero-io/flux-capacitor-client)
+- [SDK Docs](https://github.com/fluxzero-io/fluxzero-sdk-java)
