@@ -1,30 +1,26 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/fluxzero-io/.github/refs/heads/main/assets/fluxzero-logo.png" width="120" alt="Fluxzero logo" />
+  <a href="https://fluxzero.io">
+    <img src="https://fluxzero.io/assets/fluxzero/fluxzero-logo.png" alt="Fluxzero logo" width="80">
+  </a>
+  <h1 align="center">Fluxzero</h1>
 </p>
 
-<h2 align="center">Fluxzero</h2>
-<p align="center">Build full-featured distributed apps — without the distributed complexity.</p>
+<p align="center">
+  Write Business Logic. Skip Everything Else.<br/>
+  <a href="https://fluxzero.io" rel="noopener noreferrer">Learn more on our website</a>
+</p>
 
----
+#
 
-Fluxzero is a next-generation platform for building zero-boilerplate, scalable, and resilient backend applications.
+<p align="center">
+  <strong>Launched September 2025</strong> — Fluxzero is a cloud runtime that lets you build any backend, from a weekend MVP to a fleet of microservices. You focus on business logic. Fluxzero takes care of the rest. No rewrites. No migrations. Just clean, expressive logic that grows with you.
+</p>
 
-You write code that solves real business problems.  
-Fluxzero takes care of the 50 things you'd rather not implement.
+#
 
----
-
-### The SDK
-Our JVM-first SDK (Java, Kotlin, Scala) makes it easy to:
-
-- Handle commands, queries, events, schedules, and web requests
-- Persist messages, documents, snapshots, and metrics
-- Scale from MVP to enterprise without rewrites
-- Test your app behaviorally — right out of the box
-
-Coming soon: support for more languages and platforms.
-
----
-
-### Learn more
-- [SDK Docs](https://github.com/fluxzero-io/fluxzero-sdk-java)
+<p align="center">
+  <a href="https://fluxzero.io"><strong>🌍 Website</strong></a> ·
+  <a href="https://fluxzero.io/docs"><strong>📖 Docs</strong></a> ·
+  <a href="https://github.com/fluxzero-io/fluxzero-sdk-java"><strong>💻 SDK</strong></a> ·
+  <a href="https://github.com/orgs/fluxzero-io/discussions"><strong>💬 Community</strong></a>
+</p>
