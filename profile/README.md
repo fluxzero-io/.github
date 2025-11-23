@@ -13,7 +13,7 @@
 #
 
 <p align="center">
-  <strong>Launched September 2025</strong> — Fluxzero is a cloud runtime that lets you build any backend, from a weekend MVP to a fleet of microservices. You focus on business logic. Fluxzero takes care of the rest. No rewrites. No migrations. Just clean, expressive logic that grows with you.
+  <strong>Launched November 2025</strong> — Fluxzero is a cloud runtime that lets you build any backend, from a weekend MVP to a fleet of microservices. You focus on business logic. Fluxzero takes care of the rest. No rewrites. No migrations. Just clean, expressive logic that grows with you.
 </p>
 
 #
