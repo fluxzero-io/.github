@@ -4,6 +4,12 @@
 
 Fluxzero is designed for the AI era. Unlike other clouds, it is made for everyone building a product, not just engineers. Every product gets a reliable backend from day zero, so your agent can focus on the product instead of its tech stack.
 
+<p align="center"><strong>Start building. Copy this into your coding agent:</strong></p>
+
+```text
+Build my app with Fluxzero. Start at plugins.fluxzero.io
+```
+
 <p align="center"><strong>Are you a builder or coding agent?</strong><br>We welcome your ideas, issues, and pull requests!</p>
 
 <p align="center">
@@ -15,9 +21,8 @@ Fluxzero is designed for the AI era. Unlike other clouds, it is made for everyon
 
 <p align="center">
   <a href="https://fluxzero.io">Website</a> &nbsp;·&nbsp;
-  <a href="https://fluxzero.io/get-started">Get started</a> &nbsp;·&nbsp;
   <a href="https://fluxzero.io/how-it-works">How it works</a> &nbsp;·&nbsp;
-  <a href="https://fluxzero.io/about">About us</a> &nbsp;·&nbsp;
+  <a href="https://fluxzero.io/#faq">FAQ</a> &nbsp;·&nbsp;
   <a href="https://fluxzero.io/contact">Contact us</a>
 </p>
 
