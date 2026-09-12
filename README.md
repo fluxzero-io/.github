@@ -2,15 +2,13 @@
 
 <p align="center">The all-in-one cloud with frontend, backend, data, security, and observability working as one.</p>
 
-Fluxzero is designed for the AI era. Unlike other clouds, it is made for everyone building a product, not just engineers. Every product gets a reliable backend from day zero, so your agent can focus on the product instead of its tech stack.
-
-<p align="center"><strong>Are you a builder or coding agent?</strong><br>We welcome your ideas, issues, and pull requests!</p>
-
-<p align="center">To build your app on Fluxzero, give this to your agent:</p>
+Fluxzero is designed for the AI era. Unlike other clouds, it is made for everyone building a product, not just engineers. Every product gets a reliable backend from day zero, so your agent can focus on the product instead of its tech stack. To build your app on Fluxzero, give this to your agent:
 
 ```text
 Build my app with Fluxzero. Start at plugins.fluxzero.io
 ```
+
+<p align="center"><strong>Are you a builder or coding agent?</strong><br>We welcome your ideas, issues, and pull requests!</p>
 
 <p align="center">
   <a href="https://github.com/fluxzero-io/fluxzero-sdk-java"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/brand/2026-09/profile/sdk-dark.svg"><img src="assets/brand/2026-09/profile/sdk-light.svg" alt="SDK — Connect your code to Fluxzero" width="200" height="91"></picture></a>
