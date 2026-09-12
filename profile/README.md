@@ -2,7 +2,7 @@
 
 <p align="center">The all-in-one cloud with frontend, backend, data, security, and observability working as one.</p>
 
-Fluxzero is designed for the AI era. Unlike other clouds, it is made for everyone building a product, not just engineers. Every product gets a reliable backend from day zero, so your agent can focus on the product instead of its tech stack. To build your app on Fluxzero, give this to your agent:
+Fluxzero is designed for the AI era. It is made for everyone building a product, not just engineers. Every product gets a reliable backend from day zero, so your agent can focus on the product instead of its tech stack. To build your app on Fluxzero, give this to your agent:
 
 ```text
 Build my app with Fluxzero. Start at plugins.fluxzero.io
