@@ -23,18 +23,19 @@ fonts = {
     'body': TTFont(args.website / 'public/fonts/inter/Inter-Regular.ttf'),
 }
 
-def text(value, x, y, size, font='body', fill='#F4F7FF'):
+def text(value, x, y, size, font='body', fill='#F4F7FF', accent_after=None):
     f = fonts[font]
     glyphs = f.getGlyphSet()
     cmap = f.getBestCmap()
     scale = size / f['head'].unitsPerEm
     paths = []
     offset = 0
-    for char in value:
+    for index, char in enumerate(value):
         name = cmap.get(ord(char), '.notdef')
         pen = SVGPathPen(glyphs)
         glyphs[name].draw(pen)
-        paths.append(f'<path transform="translate({offset},0)" d="{pen.getCommands()}"/>')
+        color = ' fill="#C4E5F6"' if accent_after is not None and index >= accent_after else ''
+        paths.append(f'<path{color} transform="translate({offset},0)" d="{pen.getCommands()}"/>')
         offset += glyphs[name].width
     return f'<g aria-label="{html.escape(value, quote=True)}" fill="{fill}" transform="translate({x},{y}) scale({scale},-{scale})">'+''.join(paths)+'</g>'
 
@@ -47,11 +48,12 @@ def vector(name, x, y, width):
 def svg(height, title, body):
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="{height}" viewBox="0 0 1280 {height}" role="img" aria-labelledby="title">
 <title id="title">{html.escape(title)}</title>
-<defs><radialGradient id="glow"><stop stop-color="#17456b" stop-opacity=".8"/><stop offset="1" stop-color="#05070b" stop-opacity="0"/></radialGradient><linearGradient id="line"><stop stop-color="#3582bc" stop-opacity="0"/><stop offset=".6" stop-color="#84bfdc" stop-opacity=".48"/><stop offset="1" stop-color="#3582bc" stop-opacity="0"/></linearGradient></defs>
+<defs><clipPath id="banner-clip"><rect width="1280" height="{height}" rx="18"/></clipPath><radialGradient id="glow"><stop stop-color="#17456b" stop-opacity=".8"/><stop offset="1" stop-color="#05070b" stop-opacity="0"/></radialGradient><linearGradient id="line"><stop stop-color="#3582bc" stop-opacity="0"/><stop offset=".6" stop-color="#84bfdc" stop-opacity=".48"/><stop offset="1" stop-color="#3582bc" stop-opacity="0"/></linearGradient></defs>
+<g clip-path="url(#banner-clip)">
 <rect width="1280" height="{height}" rx="18" fill="#05070B"/>
 <ellipse cx="1010" cy="{height*.65}" rx="600" ry="{height*1.1}" fill="url(#glow)"/>
 <path d="M650 {height} Q900 {height*.12} 1350 {height*.65}" stroke="url(#line)" stroke-width="1.5" fill="none"/>
-{body}</svg>'''
+{body}</g></svg>'''
 
 hero = vector('fluxzero-logo.svg',64,42,240)
 hero += text('The European cloud',64,210,76,'display')
@@ -60,8 +62,7 @@ hero += text('Everything your product needs to run',67,385,25)
 hero += text('fluxzero.io',1060,76,22,fill='#A7B4C8')
 (out/'organization-hero.svg').write_text(svg(440,'Fluxzero — The European cloud for AI-built apps',hero))
 header = vector('fluxzero-logo.svg',52,42,226)
-header += text('The European cloud',52,173,52,'display')
-header += text('for AI-built apps',665,174,49,'display','#C4E5F6')
+header += text('The European cloud for AI-built apps',52,173,52,'display',accent_after=len('The European cloud '))
 header += text('fluxzero.io',1070,75,22,fill='#A7B4C8')
 (out/'repository-header.svg').write_text(svg(224,'Fluxzero — The European cloud for AI-built apps',header))
 compact = vector('fluxzero-logo.svg',40,27,180)
@@ -81,8 +82,7 @@ for repo,label in labels.items():
     (out/'social'/f'{repo}.svg').write_text(svg(640,f'Fluxzero — {label}',body))
 print(f'Built assets from website brand {version}')
 
-# The public profile uses a compact hero and real linked image buttons. New filenames
-# keep the currently published profile stable while this revision is being previewed.
+# Compact organization hero and linked tool buttons.
 profile = out / 'profile'
 profile.mkdir(exist_ok=True)
 
@@ -96,18 +96,15 @@ def center(value, y, size, font='body', fill='#F4F7FF', width=1280):
 body = vector('fluxzero-logo.svg', 525, 32, 230)
 body += center('The European cloud', 163, 64, 'display')
 body += center('for AI-built apps', 238, 64, 'display', '#C4E5F6')
-profile_hero = svg(292, 'Fluxzero — The European cloud for AI-built apps', body)
-profile_hero = profile_hero.replace('<defs>', '<defs><clipPath id="profile-clip"><rect width="1280" height="292" rx="18"/></clipPath>', 1)
-profile_hero = profile_hero.replace('<rect width="1280" height="292" rx="18" fill=', '<g clip-path="url(#profile-clip)"><rect width="1280" height="292" rx="18" fill=', 1)
-profile_hero = profile_hero.replace('</svg>', '</g></svg>')
-(profile / 'hero.svg').write_text(profile_hero)
+(profile / 'hero.svg').write_text(svg(292, 'Fluxzero — The European cloud for AI-built apps', body))
 
 icons = {
     'cli': '<rect x="2" y="3" width="26" height="22" rx="4"/><path d="m8 10 5 4-5 4m9 0h5"/>',
     'agents': '<rect x="4" y="8" width="22" height="18" rx="5"/><path d="M15 3v5m-5 8h.1m9.9 0h.1M10 21h10M0 15h4m22 0h4"/><circle cx="15" cy="2" r="1"/>',
     'sdk': '<path d="m10 6-8 9 8 9m10-18 8 9-8 9m-3-22-4 26"/>',
+    'dev-server': '<rect x="2" y="2" width="26" height="11" rx="3"/><rect x="2" y="17" width="26" height="11" rx="3"/><path d="M7 7.5h.1M7 22.5h.1M13 7.5h9M13 22.5h9"/>',
 }
-for key, label, caption in [('cli', 'CLI', 'Create and run projects'), ('agents', 'Agent plugins', 'For your coding agent'), ('sdk', 'SDK', 'Java and Kotlin')]:
+for key, label, caption in [('cli', 'CLI', 'Create and run projects'), ('agents', 'Agent plugins', 'For your coding agent'), ('sdk', 'SDK', 'Java and Kotlin'), ('dev-server', 'Dev Server', 'Local development')]:
     for theme, caption_color in [('dark', '#A7B4C8'), ('light', '#59636e')]:
         content = '<rect x="10" y="6" width="340" height="92" rx="16" fill="#0A0F17" stroke="#315474" stroke-width="2"/>'
         content += f'<g transform="translate(36,36)" stroke="#A9D5F0" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">{icons[key]}</g>'

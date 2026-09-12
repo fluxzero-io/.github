@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="292" viewBox="0 0 1280 292" role="img" aria-labelledby="title">
 <title id="title">Fluxzero — The European cloud for AI-built apps</title>
-<defs><clipPath id="profile-clip"><rect width="1280" height="292" rx="18"/></clipPath><radialGradient id="glow"><stop stop-color="#17456b" stop-opacity=".8"/><stop offset="1" stop-color="#05070b" stop-opacity="0"/></radialGradient><linearGradient id="line"><stop stop-color="#3582bc" stop-opacity="0"/><stop offset=".6" stop-color="#84bfdc" stop-opacity=".48"/><stop offset="1" stop-color="#3582bc" stop-opacity="0"/></linearGradient></defs>
-<g clip-path="url(#profile-clip)"><rect width="1280" height="292" rx="18" fill="#05070B"/>
+<defs><clipPath id="banner-clip"><rect width="1280" height="292" rx="18"/></clipPath><radialGradient id="glow"><stop stop-color="#17456b" stop-opacity=".8"/><stop offset="1" stop-color="#05070b" stop-opacity="0"/></radialGradient><linearGradient id="line"><stop stop-color="#3582bc" stop-opacity="0"/><stop offset=".6" stop-color="#84bfdc" stop-opacity=".48"/><stop offset="1" stop-color="#3582bc" stop-opacity="0"/></linearGradient></defs>
+<g clip-path="url(#banner-clip)">
+<rect width="1280" height="292" rx="18" fill="#05070B"/>
 <ellipse cx="1010" cy="189.8" rx="600" ry="321.20000000000005" fill="url(#glow)"/>
 <path d="M650 292 Q900 35.04 1350 189.8" stroke="url(#line)" stroke-width="1.5" fill="none"/>
 <g transform="translate(525,32) scale(0.19318802234261476)">
