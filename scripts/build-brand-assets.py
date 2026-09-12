@@ -104,7 +104,7 @@ icons = {
     'sdk': '<path d="m10 6-8 9 8 9m10-18 8 9-8 9m-3-22-4 26"/>',
     'dev-server': '<rect x="2" y="2" width="26" height="11" rx="3"/><rect x="2" y="17" width="26" height="11" rx="3"/><path d="M7 7.5h.1M7 22.5h.1M13 7.5h9M13 22.5h9"/>',
 }
-for key, label, caption in [('cli', 'CLI', 'Create and run projects'), ('agents', 'Agent plugins', 'For your coding agent'), ('sdk', 'SDK', 'Java and Kotlin'), ('dev-server', 'Dev Server', 'Local development')]:
+for key, label, caption in [('sdk', 'SDK', 'Connect your code to Fluxzero'), ('agents', 'Agent plugins', 'Guide your coding agent'), ('cli', 'CLI', 'Create, run, and deploy apps'), ('dev-server', 'Dev Server', 'Develop and test locally')]:
     for theme, caption_color in [('dark', '#A7B4C8'), ('light', '#59636e')]:
         content = '<rect x="10" y="6" width="340" height="92" rx="16" fill="#0A0F17" stroke="#315474" stroke-width="2"/>'
         content += f'<g transform="translate(36,36)" stroke="#A9D5F0" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">{icons[key]}</g>'
