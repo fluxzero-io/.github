@@ -22,8 +22,8 @@ Build my app with Fluxzero. Start at plugins.fluxzero.io
 <p align="center">
   <a href="https://fluxzero.io">Website</a> &nbsp;·&nbsp;
   <a href="https://fluxzero.io/how-it-works">How it works</a> &nbsp;·&nbsp;
-  <a href="https://fluxzero.io/about">About us</a> &nbsp;·&nbsp;
   <a href="https://fluxzero.io/#faq">FAQ</a> &nbsp;·&nbsp;
+  <a href="https://fluxzero.io/about">About us</a> &nbsp;·&nbsp;
   <a href="https://fluxzero.io/contact">Contact us</a>
 </p>
 
