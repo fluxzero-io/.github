@@ -56,7 +56,7 @@ def svg(height, title, body):
 hero = vector('fluxzero-logo.svg',64,42,240)
 hero += text('The European cloud',64,210,76,'display')
 hero += text('for AI-built apps',64,306,76,'display','#C4E5F6')
-hero += text('Build, run, and scale your product.',67,385,25)
+hero += text('Everything your product needs to run',67,385,25)
 hero += text('fluxzero.io',1060,76,22,fill='#A7B4C8')
 (out/'organization-hero.svg').write_text(svg(440,'Fluxzero — The European cloud for AI-built apps',hero))
 header = vector('fluxzero-logo.svg',52,42,226)
@@ -69,7 +69,7 @@ compact += text('Platform engineering',805,59,23,fill='#A7B4C8')
 (out/'engineering-header.svg').write_text(svg(96,'Fluxzero — Platform engineering',compact))
 mark = vector('fluxzero-mark.svg',105,91,302)
 (out/'avatar.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><rect width="512" height="512" fill="#05070B"/>'+mark+'</svg>')
-labels = {'.github': 'Build, run, and scale your product.', 'fluxzero-agent-plugins': 'Agent plugins', 'fluxzero-cli': 'CLI', 'fluxzero-sdk-java': 'Java & Kotlin SDK', 'fluxzero-dev-server': 'Dev Server', 'fluxzero-site': 'Website & documentation', 'fluxzero-deploy-action': 'Deploy Action', 'fluxzero-jwt-action': 'JWT Action', 'fluxzero-sample-gamerental': 'Game Rental sample', 'homebrew-tap': 'Homebrew tap'}
+labels = {'.github': 'Everything your product needs to run', 'fluxzero-agent-plugins': 'Agent plugins', 'fluxzero-cli': 'CLI', 'fluxzero-sdk-java': 'Java & Kotlin SDK', 'fluxzero-dev-server': 'Dev Server', 'fluxzero-site': 'Website & documentation', 'fluxzero-deploy-action': 'Deploy Action', 'fluxzero-jwt-action': 'JWT Action', 'homebrew-tap': 'Homebrew tap'}
 (out/'social').mkdir(exist_ok=True)
 for repo,label in labels.items():
     body = vector('fluxzero-logo.svg',64,50,255)
@@ -80,3 +80,35 @@ for repo,label in labels.items():
     body += text('fluxzero.io',64,585,23,fill='#A7B4C8')
     (out/'social'/f'{repo}.svg').write_text(svg(640,f'Fluxzero — {label}',body))
 print(f'Built assets from website brand {version}')
+
+# The public profile uses a compact hero and real linked image buttons. New filenames
+# keep the currently published profile stable while this revision is being previewed.
+profile = out / 'profile'
+profile.mkdir(exist_ok=True)
+
+def center(value, y, size, font='body', fill='#F4F7FF', width=1280):
+    f = fonts[font]
+    glyphs = f.getGlyphSet()
+    cmap = f.getBestCmap()
+    advance = sum(glyphs[cmap.get(ord(char), '.notdef')].width for char in value)
+    return text(value, (width - advance * size / f['head'].unitsPerEm) / 2, y, size, font, fill)
+
+body = vector('fluxzero-logo.svg', 525, 32, 230)
+body += center('The European cloud', 163, 64, 'display')
+body += center('for AI-built apps', 238, 64, 'display', '#C4E5F6')
+(profile / 'hero.svg').write_text(svg(292, 'Fluxzero — The European cloud for AI-built apps', body))
+
+icons = {
+    'cli': '<rect x="2" y="3" width="26" height="22" rx="4"/><path d="m8 10 5 4-5 4m9 0h5"/>',
+    'agents': '<rect x="4" y="8" width="22" height="18" rx="5"/><path d="M15 3v5m-5 8h.1m9.9 0h.1M10 21h10M0 15h4m22 0h4"/><circle cx="15" cy="2" r="1"/>',
+    'sdk': '<path d="m10 6-8 9 8 9m10-18 8 9-8 9m-3-22-4 26"/>',
+}
+for key, label, caption in [('cli', 'CLI', 'Create and run projects'), ('agents', 'Agent plugins', 'For your coding agent'), ('sdk', 'SDK', 'Java and Kotlin')]:
+    for theme, caption_color in [('dark', '#A7B4C8'), ('light', '#59636e')]:
+        content = '<rect x="10" y="6" width="340" height="92" rx="16" fill="#0A0F17" stroke="#315474" stroke-width="2"/>'
+        content += f'<g transform="translate(36,36)" stroke="#A9D5F0" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">{icons[key]}</g>'
+        content += text(label, 92, 62, 27)
+        content += '<path d="M307 46h14m-6-6 6 6-6 6" stroke="#83A6C5" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+        content += center(caption, 139, 22, fill=caption_color, width=360)
+        title = html.escape(f'{label} — {caption}')
+        (profile / f'{key}-{theme}.svg').write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="360" height="164" viewBox="0 0 360 164" role="img"><title>{title}</title>{content}</svg>')
