@@ -96,7 +96,11 @@ def center(value, y, size, font='body', fill='#F4F7FF', width=1280):
 body = vector('fluxzero-logo.svg', 525, 32, 230)
 body += center('The European cloud', 163, 64, 'display')
 body += center('for AI-built apps', 238, 64, 'display', '#C4E5F6')
-(profile / 'hero.svg').write_text(svg(292, 'Fluxzero — The European cloud for AI-built apps', body))
+profile_hero = svg(292, 'Fluxzero — The European cloud for AI-built apps', body)
+profile_hero = profile_hero.replace('<defs>', '<defs><clipPath id="profile-clip"><rect width="1280" height="292" rx="18"/></clipPath>', 1)
+profile_hero = profile_hero.replace('<rect width="1280" height="292" rx="18" fill=', '<g clip-path="url(#profile-clip)"><rect width="1280" height="292" rx="18" fill=', 1)
+profile_hero = profile_hero.replace('</svg>', '</g></svg>')
+(profile / 'hero.svg').write_text(profile_hero)
 
 icons = {
     'cli': '<rect x="2" y="3" width="26" height="22" rx="4"/><path d="m8 10 5 4-5 4m9 0h5"/>',
