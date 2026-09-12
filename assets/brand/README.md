@@ -12,11 +12,29 @@ The September 2026 set uses website brand `ea5f28b5-8e77-4cd0-ac01-fa8b5114a472`
 | `2026-09/profile/hero.svg` | Compact organization hero; homepage headline verbatim. |
 | `2026-09/profile/{cli,agents,sdk}-{light,dark}.svg` | Linked icon buttons with functional captions for light and dark GitHub themes. |
 | `2026-09/repository-header.svg` | Shared header for Fluxzero-owned projects. |
-| `2026-09/engineering-header.svg` | Compact header for platform engineering forks. |
+| `2026-09/engineering-header.svg` | Reserved compact header; currently unused. |
 | `2026-09/avatar.png` | Organization avatar, with padding for circular crops. |
 | `2026-09/social/*.png` | Repository-specific GitHub social previews, 1280 × 640 pixels. |
 
 SVG sources are included for the avatar and social previews. Keep existing versioned URLs available when refreshing the identity; old commits and release READMEs may reference them.
+
+## Visual reference
+
+Organization banner:
+
+![Fluxzero — The European cloud for AI-built apps](2026-09/profile/hero.svg)
+
+Repository banner:
+
+![Fluxzero — The European cloud for AI-built apps](2026-09/repository-header.svg)
+
+Social preview (the lower label identifies the repository):
+
+<img src="2026-09/social/fluxzero-cli.png" alt="Fluxzero — The European cloud for AI-built apps — CLI" width="640">
+
+Organization avatar:
+
+<img src="2026-09/avatar.png" alt="Fluxzero mark" width="128" height="128">
 
 ## Regeneration
 
