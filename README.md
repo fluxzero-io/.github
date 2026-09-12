@@ -2,7 +2,7 @@
 
 <p align="center">The all-in-one cloud with frontend, backend, data, security, and observability working as one.</p>
 
-Fluxzero is a cloud platform for applications built with AI. It hosts your frontend and backend, stores your data, and runs the application in production. Unlike other clouds, Fluxzero gives every product a reliable backend, so your agent can focus on the product instead of its tech stack.
+Fluxzero is designed for the AI era. It gives every product a reliable backend, so your agent can focus on the product instead of its tech stack.
 
 <p align="center"><strong>Build with us.</strong><br>Builders and coding agents are welcome to share ideas, report issues, and contribute pull requests.</p>
 
