@@ -112,4 +112,5 @@ for key, label, caption in [('sdk', 'SDK', 'Connect your code to Fluxzero'), ('a
         content += '<path d="M307 46h14m-6-6 6 6-6 6" stroke="#83A6C5" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
         content += center(caption, 139, 22, fill=caption_color, width=360)
         title = html.escape(f'{label} — {caption}')
-        (profile / f'{key}-{theme}.svg').write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="360" height="164" viewBox="0 0 360 164" role="img"><title>{title}</title>{content}</svg>')
+        for suffix, width, height in [('', 200, 91), ('-mobile', 150, 68)]:
+            (profile / f'{key}{suffix}-{theme}.svg').write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 360 164" role="img"><title>{title}</title>{content}</svg>')
