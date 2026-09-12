@@ -14,9 +14,11 @@ Fluxzero is designed for the AI era. Unlike other clouds, it is made for everyon
 </p>
 
 <p align="center">
-  <a href="https://fluxzero.io/get-started"><strong>Get started →</strong></a> &nbsp;·&nbsp;
-  <a href="https://fluxzero.io/docs">Docs</a> &nbsp;·&nbsp;
-  <a href="https://fluxzero.io/contact">Talk to us</a>
+  <a href="https://fluxzero.io">Website</a> &nbsp;·&nbsp;
+  <a href="https://fluxzero.io/get-started">Get started</a> &nbsp;·&nbsp;
+  <a href="https://fluxzero.io/how-it-works">How it works</a> &nbsp;·&nbsp;
+  <a href="https://fluxzero.io/about">About us</a> &nbsp;·&nbsp;
+  <a href="https://fluxzero.io/contact">Contact us</a>
 </p>
 
 <details>
