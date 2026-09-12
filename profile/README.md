@@ -1,4 +1,4 @@
-<a href="https://fluxzero.io/get-started"><img src="../assets/brand/2026-09/profile/hero.svg" alt="Fluxzero — The European cloud for AI-built apps" width="1280"></a>
+<a href="https://fluxzero.io"><img src="../assets/brand/2026-09/profile/hero.svg" alt="Fluxzero — The European cloud for AI-built apps" width="1280"></a>
 
 <p align="center">The all-in-one cloud with frontend, backend, data, security, and observability working as one.</p>
 
