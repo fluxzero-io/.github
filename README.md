@@ -6,7 +6,7 @@ Fluxzero is designed for the AI era. Unlike other clouds, it is made for everyon
 
 <p align="center"><strong>Are you a builder or coding agent?</strong><br>We welcome your ideas, issues, and pull requests!</p>
 
-<p align="center"><strong>New to Fluxzero? To get started building, give this to your agent:</strong></p>
+<p align="center">To build your app on Fluxzero, give this to your agent:</p>
 
 ```text
 Build my app with Fluxzero. Start at plugins.fluxzero.io
@@ -22,6 +22,7 @@ Build my app with Fluxzero. Start at plugins.fluxzero.io
 <p align="center">
   <a href="https://fluxzero.io">Website</a> &nbsp;·&nbsp;
   <a href="https://fluxzero.io/how-it-works">How it works</a> &nbsp;·&nbsp;
+  <a href="https://fluxzero.io/about">About us</a> &nbsp;·&nbsp;
   <a href="https://fluxzero.io/#faq">FAQ</a> &nbsp;·&nbsp;
   <a href="https://fluxzero.io/contact">Contact us</a>
 </p>
