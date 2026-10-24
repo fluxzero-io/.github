@@ -1,10 +1,8 @@
-<a href="https://fluxzero.io"><img src="../assets/brand/2026-10/profile/hero.png" alt="Fluxzero — The cloud that works for your agent." width="1280"></a>
+<a href="https://fluxzero.io"><img src="../assets/brand/2026-09/profile/hero.svg" alt="Fluxzero — The European cloud for AI-built apps" width="1280"></a>
 
-<p align="center">Run your product on the cloud where scale, security and reliability come built in.</p>
+<p align="center">The all-in-one cloud with frontend, backend, data, security, and observability working as one.</p>
 
-Fluxzero provides the data handling, security, reliability, and scale your product needs, so your agent can build product features without building and maintaining the systems underneath. Once your product is live, you and your agent can see what happens, investigate problems, and keep improving it.
-
-To build your app on Fluxzero, give this to your agent:
+Fluxzero is designed for the AI era. It is made for everyone building a product, not just engineers. Every product gets a reliable backend from day zero, so your agent can focus on the product instead of its tech stack. To build your app on Fluxzero, give this to your agent:
 
 ```text
 Build my app with Fluxzero. Start at plugins.fluxzero.io
