@@ -1,4 +1,4 @@
-<a href="https://fluxzero.io/#get-started"><img src="assets/brand/2026-10/profile/hero.svg" alt="Fluxzero — The cloud that works for your agent." width="1280"></a>
+<a href="https://fluxzero.io/#get-started"><img src="assets/brand/2026-10/profile/hero.png" alt="Fluxzero — The cloud that works for your agent." width="1280"></a>
 
 <p align="center">Run your product on the cloud where scale, security and reliability come built in.</p>
 
