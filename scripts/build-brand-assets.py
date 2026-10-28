@@ -19,11 +19,14 @@ source = args.website / 'public/assets/fluxzero/brand' / version
 for name in ['fluxzero-logo.svg', 'fluxzero-mark.svg']:
     shutil.copyfile(source / name, out / name)
 fonts = {
-    'display': TTFont(args.website / 'public/fonts/google-sans-flex/GoogleSansFlex-Black.ttf'),
-    'body': TTFont(args.website / 'public/fonts/inter/Inter-Regular.ttf'),
+    'display': TTFont(args.website / 'public/fonts/poppins/Poppins-600-latin.woff2'),
+    'body': TTFont(args.website / 'public/fonts/poppins/Poppins-400-latin.woff2'),
+    'profile': TTFont(args.website / 'public/fonts/inter/Inter-Regular.ttf'),
 }
+gradient_serial = 0
 
 def text(value, x, y, size, font='body', fill='#F4F7FF', accent_after=None):
+    global gradient_serial
     f = fonts[font]
     glyphs = f.getGlyphSet()
     cmap = f.getBestCmap()
@@ -34,10 +37,23 @@ def text(value, x, y, size, font='body', fill='#F4F7FF', accent_after=None):
         name = cmap.get(ord(char), '.notdef')
         pen = SVGPathPen(glyphs)
         glyphs[name].draw(pen)
-        color = ' fill="#C4E5F6"' if accent_after is not None and index >= accent_after else ''
+        color = ' fill="url(#text-accent)"' if accent_after is not None and index >= accent_after else ''
         paths.append(f'<path{color} transform="translate({offset},0)" d="{pen.getCommands()}"/>')
         offset += glyphs[name].width
-    return f'<g aria-label="{html.escape(value, quote=True)}" fill="{fill}" transform="translate({x},{y}) scale({scale},-{scale})">'+''.join(paths)+'</g>'
+    path_content = ''.join(paths)
+    if fill == 'url(#text-accent)':
+        gradient_serial += 1
+        mask_id = f'gradient-text-{gradient_serial}'
+        fill_id = f'gradient-fill-{gradient_serial}'
+        width = offset * scale
+        return f'<defs><mask id="{mask_id}" x="{x}" y="{y-size*1.3}" width="{width}" height="{size*1.7}" maskUnits="userSpaceOnUse"><rect x="{x}" y="{y-size*1.3}" width="{width}" height="{size*1.7}" fill="#000"/><g fill="#fff" transform="translate({x},{y}) scale({scale},-{scale})">{path_content}</g></mask><linearGradient id="{fill_id}" x1="{x}" y1="0" x2="{x+width}" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#D9F5FF"/><stop offset="1" stop-color="#2F7FBA"/></linearGradient></defs><rect aria-label="{html.escape(value, quote=True)}" x="{x}" y="{y-size*1.3}" width="{width}" height="{size*1.7}" fill="url(#{fill_id})" mask="url(#{mask_id})"/>'
+    return f'<g aria-label="{html.escape(value, quote=True)}" fill="{fill}" transform="translate({x},{y}) scale({scale},-{scale})">{path_content}</g>'
+
+def text_width(value, size, font='body'):
+    f = fonts[font]
+    glyphs = f.getGlyphSet()
+    cmap = f.getBestCmap()
+    return sum(glyphs[cmap.get(ord(char), '.notdef')].width for char in value) * size / f['head'].unitsPerEm
 
 def vector(name, x, y, width):
     content = (source/name).read_text()
@@ -56,26 +72,27 @@ def svg(height, title, body):
 {body}</g></svg>'''
 
 hero = vector('fluxzero-logo.svg',64,42,240)
-hero += text('The European cloud',64,210,76,'display')
-hero += text('for AI-built apps',64,306,76,'display','#C4E5F6')
-hero += text('Everything your product needs to run',67,385,25)
+hero += text('The cloud',64,210,76,'display')
+hero += text('for the AI era',64,306,76,'display','url(#text-accent)')
+hero += text('The first cloud with scale, security and reliability built in.',67,385,25)
 hero += text('fluxzero.io',1060,76,22,fill='#A7B4C8')
-(out/'organization-hero.svg').write_text(svg(440,'Fluxzero — The European cloud for AI-built apps',hero))
+(out/'organization-hero.svg').write_text(svg(440,'Fluxzero — The cloud for the AI era',hero))
 header = vector('fluxzero-logo.svg',52,42,226)
-header += text('The European cloud for AI-built apps',52,173,52,'display',accent_after=len('The European cloud '))
+header += text('The cloud',52,173,52,'display')
+header += text(' for the AI era',52 + text_width('The cloud',52,'display'),173,52,'display','url(#text-accent)')
 header += text('fluxzero.io',1070,75,22,fill='#A7B4C8')
-(out/'repository-header.svg').write_text(svg(224,'Fluxzero — The European cloud for AI-built apps',header))
+(out/'repository-header.svg').write_text(svg(224,'Fluxzero — The cloud for the AI era',header))
 compact = vector('fluxzero-logo.svg',40,27,180)
-compact += text('Platform engineering',805,59,23,fill='#A7B4C8')
+compact += text('Platform engineering',805,59,23,font='profile',fill='#A7B4C8')
 (out/'engineering-header.svg').write_text(svg(96,'Fluxzero — Platform engineering',compact))
 mark = vector('fluxzero-mark.svg',105,91,302)
 (out/'avatar.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><rect width="512" height="512" fill="#05070B"/>'+mark+'</svg>')
-labels = {'.github': 'Everything your product needs to run', 'fluxzero-agent-plugins': 'Agent plugins', 'fluxzero-cli': 'CLI', 'fluxzero-sdk-java': 'Java & Kotlin SDK', 'fluxzero-dev-server': 'Dev Server', 'fluxzero-site': 'Website & documentation', 'fluxzero-deploy-action': 'Deploy Action', 'fluxzero-jwt-action': 'JWT Action', 'homebrew-tap': 'Homebrew tap'}
+labels = {'.github': 'The first cloud with scale, security and reliability built in.', 'fluxzero-agent-plugins': 'Agent plugins', 'fluxzero-cli': 'CLI', 'fluxzero-sdk-java': 'Java & Kotlin SDK', 'fluxzero-dev-server': 'Dev Server', 'fluxzero-site': 'Website & documentation', 'fluxzero-deploy-action': 'Deploy Action', 'fluxzero-jwt-action': 'JWT Action', 'homebrew-tap': 'Homebrew tap'}
 (out/'social').mkdir(exist_ok=True)
 for repo,label in labels.items():
     body = vector('fluxzero-logo.svg',64,50,255)
-    body += text('The European cloud',64,245,77,'display')
-    body += text('for AI-built apps',64,350,77,'display','#C4E5F6')
+    body += text('The cloud',64,245,77,'display')
+    body += text('for the AI era',64,350,77,'display','url(#text-accent)')
     body += '<path d="M64 434 H1216" stroke="#263A50"/>'
     body += text(label,64,510,31)
     body += text('fluxzero.io',64,585,23,fill='#A7B4C8')
@@ -94,9 +111,9 @@ def center(value, y, size, font='body', fill='#F4F7FF', width=1280):
     return text(value, (width - advance * size / f['head'].unitsPerEm) / 2, y, size, font, fill)
 
 body = vector('fluxzero-logo.svg', 525, 32, 230)
-body += center('The European cloud', 163, 64, 'display')
-body += center('for AI-built apps', 238, 64, 'display', '#C4E5F6')
-(profile / 'hero.svg').write_text(svg(292, 'Fluxzero — The European cloud for AI-built apps', body))
+body += center('The cloud', 163, 64, 'display')
+body += center('for the AI era', 238, 64, 'display', 'url(#text-accent)')
+(profile / 'hero.svg').write_text(svg(292, 'Fluxzero — The cloud for the AI era', body))
 
 icons = {
     'cli': '<rect x="2" y="3" width="26" height="22" rx="4"/><path d="m8 10 5 4-5 4m9 0h5"/>',
@@ -108,9 +125,9 @@ for key, label, caption in [('sdk', 'SDK', 'Connect your code to Fluxzero'), ('a
     for theme, caption_color in [('dark', '#A7B4C8'), ('light', '#59636e')]:
         content = '<rect x="10" y="6" width="340" height="92" rx="16" fill="#0A0F17" stroke="#315474" stroke-width="2"/>'
         content += f'<g transform="translate(36,36)" stroke="#A9D5F0" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">{icons[key]}</g>'
-        content += text(label, 92, 62, 27)
+        content += text(label, 92, 62, 27, 'profile')
         content += '<path d="M307 46h14m-6-6 6 6-6 6" stroke="#83A6C5" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
-        content += center(caption, 139, 22, fill=caption_color, width=360)
+        content += center(caption, 139, 22, 'profile', caption_color, width=360)
         title = html.escape(f'{label} — {caption}')
         for suffix, width, height in [('', 200, 91), ('-mobile', 150, 68)]:
             (profile / f'{key}{suffix}-{theme}.svg').write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 360 164" role="img"><title>{title}</title>{content}</svg>')

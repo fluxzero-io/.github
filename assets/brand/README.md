@@ -8,15 +8,15 @@ Logos, banners, and social preview images for Fluxzero repositories.
 
 ### Organization banner
 
-![Fluxzero — The European cloud for AI-built apps](2026-09/profile/hero.svg)
+![Fluxzero — The cloud for the AI era](2026-09/profile/hero.svg)
 
 ### Repository banner
 
-![Fluxzero — The European cloud for AI-built apps](2026-09/repository-header.svg)
+![Fluxzero — The cloud for the AI era](2026-09/repository-header.svg)
 
 ### Social preview
 
-<img src="2026-09/social/fluxzero-cli.png" alt="Fluxzero — The European cloud for AI-built apps — CLI" width="640">
+<img src="2026-09/social/fluxzero-cli.png" alt="Fluxzero — The cloud for the AI era — CLI" width="640">
 
 ### Organization avatar
 
