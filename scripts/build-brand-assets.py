@@ -74,7 +74,7 @@ def svg(height, title, body):
 hero = vector('fluxzero-logo.svg',64,42,240)
 hero += text('The cloud',64,210,76,'display')
 hero += text('for the AI era',64,306,76,'display','url(#text-accent)')
-hero += text('The first cloud with scale, security and reliability built in.',67,385,25)
+hero += text('The first cloud where scale, security and reliability come built in.',67,385,25)
 hero += text('fluxzero.io',1060,76,22,fill='#A7B4C8')
 (out/'organization-hero.svg').write_text(svg(440,'Fluxzero — The cloud for the AI era',hero))
 header = vector('fluxzero-logo.svg',52,42,226)
@@ -87,7 +87,22 @@ compact += text('Platform engineering',805,59,23,font='profile',fill='#A7B4C8')
 (out/'engineering-header.svg').write_text(svg(96,'Fluxzero — Platform engineering',compact))
 mark = vector('fluxzero-mark.svg',105,91,302)
 (out/'avatar.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><rect width="512" height="512" fill="#05070B"/>'+mark+'</svg>')
-labels = {'.github': 'The first cloud with scale, security and reliability built in.', 'fluxzero-agent-plugins': 'Agent plugins', 'fluxzero-cli': 'CLI', 'fluxzero-sdk-java': 'Java & Kotlin SDK', 'fluxzero-dev-server': 'Dev Server', 'fluxzero-site': 'Website & documentation', 'fluxzero-deploy-action': 'Deploy Action', 'fluxzero-jwt-action': 'JWT Action', 'homebrew-tap': 'Homebrew tap'}
+labels = {
+    '.github': 'The first cloud where scale, security and reliability come built in.',
+    'fluxzero-agent-plugins': 'Agent plugins',
+    'fluxzero-cli': 'CLI',
+    'fluxzero-deploy-action': 'Deploy Action',
+    'fluxzero-dev-server': 'Dev Server',
+    'fluxzero-jwt-action': 'JWT Action',
+    'fluxzero-sample-home': 'Home sample app',
+    'fluxzero-sample-ticketing': 'Ticketing sample app',
+    'fluxzero-sdk-java': 'Java & Kotlin SDK',
+    'fluxzero-site': 'Website & documentation',
+    'homebrew-tap': 'Homebrew tap',
+    'json-doclet': 'JSON Doclet',
+    'lychee-maven-plugin': 'Lychee Maven plugin',
+    'postgresql-rum-cnpg-extension': 'PostgreSQL RUM extension',
+}
 (out/'social').mkdir(exist_ok=True)
 for repo,label in labels.items():
     body = vector('fluxzero-logo.svg',64,50,255)
